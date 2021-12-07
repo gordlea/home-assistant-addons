@@ -8,6 +8,16 @@ This is a collection of addons that I have written and found useful.
 
 This repository contains the following add-ons
 
+### [emu2mqtt](./emu2mqtt)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+![Supports armhf Architecture][armhf-shield]
+![Supports armv7 Architecture][armv7-shield]
+![Supports i386 Architecture][i386-shield]
+
+_Connects your Rainforest Automation EMU-2 Energy monitoring unit to home assistant via mqtt. Connects via usb/tty._
+
 ### [fireboard2mqtt](./fireboard2mqtt)
 
 ![Supports aarch64 Architecture][aarch64-shield]
