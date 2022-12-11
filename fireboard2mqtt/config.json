@@ -13,6 +13,7 @@
       "amd64",
       "i386"
     ],
+    "init": false,
     "startup": "application",
     "boot": "auto",
     "options": {
