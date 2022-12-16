@@ -11,6 +11,10 @@ You must be running home assistant with mqtt autodiscovery enabled.
 
 See the addon's source code here [fireboard2mqtt](https://github.com/gordlea/fireboard2mqtt/). It can also be run standalone instead of as a home assistant addon.
 
+## Upgrade
+
+Note, if you are upgrading from 1.x to 2.x, you may need to uninstall and re-install before it works. Your config will have to be re-entered, as the format has changed.
+
 ## Install
 
 In home assistant, go to the addon store, click the 3 dots and choose repositories. Down at the bottom where it says add, put: `https://github.com/gordlea/home-assistant-addons`.
