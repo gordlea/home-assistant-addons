@@ -1,7 +1,6 @@
 {
   "name": "EMU-2 2 MQTT",
-  "version": "1.0.0",
-  "stage": "stable",
+  "version": "1.0.1",
   "slug": "emu2mqtt",
   "url": "https://github.com/gordlea/emu2mqtt",
   "description": "A bridge that connects the EMU-2 energy monitoring unit to mqtt (compatible with home assistant matt discovery).",
@@ -13,10 +12,6 @@
     "amd64",
     "i386"
   ],
-  "startup": "application",
-  "boot": "auto",
-  "uart": false,
-  "host_network": false,
   "options": {
     "emuDevice": null,
     "mqttUrl": "mqtt://localhost:1883",
