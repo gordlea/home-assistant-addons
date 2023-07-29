@@ -16,8 +16,6 @@ services:
 - "mqtt:need"
 init: false
 host_network: true
-startup: application
-boot: auto
 options:
   fireboardAccount_email: null
   fireboardAccount_password: null
