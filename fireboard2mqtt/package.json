@@ -1,0 +1,23 @@
+{
+  "name": "fireboard2mqtt",
+  "version": "2.0.2",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./cli.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@lumbermill/node": "1.0.1-beta.1",
+    "arpping": "^4.0.0",
+    "config": "^3.3.8",
+    "ip-address": "^8.1.0",
+    "luxon": "^3.1.1",
+    "mqtt": "^4.3.7",
+    "node-fetch": "^2.6.7"
+  },
+  "packageManager": "yarn@3.6.1",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}

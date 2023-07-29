@@ -1,32 +1,39 @@
-# Home Assistant Add-on: fireboard2mqtt
+# fireboard2mqtt
 
-![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
+A simple service to bring your Fireboard wireless thermometer into home assistant via mqtt auto discovery. 
 
-An addon that will bring your [Fireboard](https://www.fireboard.com/) wireless thermometer into home assistant via mqtt autodiscovery.
-
-Note that the fireboard cloud api has a 200 req / hour rate limit, so compared to the phone app, this refreshes fairly slowly. It is still more than enough to build automations with.
+This is also available as a [Home Assistant](https://www.home-assistant.io/) addon [here](https://github.com/gordlea/home-assistant-addons/tree/main/fireboard2mqtt).
 
 ## Requirements
-You must be running home assistant with mqtt autodiscovery enabled.
 
-See the addon's source code here [fireboard2mqtt](https://github.com/gordlea/fireboard2mqtt/). It can also be run standalone instead of as a home assistant addon.
+* Nodejs >= 16.x.x
+* yarn
 
-## Upgrade
+## Notes:
 
-Note, if you are upgrading from 1.x to 2.x, you may need to uninstall and re-install before it works. Your config will have to be re-entered, as the format has changed.
+This doesn't yet handle alerts or sessions. I may get there someday if people are interested.
+Also note that due to the 200 req/hr request limit on the fireboard api, this only updates temperatures every 20 seconds. It also attempts to ping the internalIP of your fireboard as reported by the fireboard api to see if your thermometer is online. If it can't ping your thermometer, it stops trying to load the temperatures from the api.
 
-## Install
+## Usage
 
-In home assistant, go to the addon store, click the 3 dots and choose repositories. Down at the bottom where it says add, put: `https://github.com/gordlea/home-assistant-addons`.
+1. Clone the repository
+2. Run `yarn` in the project directory
+3. Add a `local.yml` config file in the ./config dir. (See below)
+4. Run `yarn start`
 
-The fireboard2mqtt addon should be available to install in the addon store now.
+## Configuration
+Configuration files go in the `./config` directory. The defaults are in the `defaults.yml` file.
 
-## Configure
+Create a `local.yml` file with any config that you wish to override from the defaults.
 
-Once it is installed, use the addon configuration tab to enter your fireboard account credentials, and your mqtt server url. Mqtt username/password are optional.
+Example: 
 
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
+```yaml
+mqtt:
+  url: "mqtt://mqtt.mydomain:1883"
+fireboard:
+    accountEmail: youraccount@example.com
+    accountPassword: yourpass
+loglevel: debug
+```
+
