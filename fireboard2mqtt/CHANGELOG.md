@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0-beta.0](https://github.com/gordlea/fireboard2mqtt/compare/main...v3.x) (2024-03-13)
+
+First beta 3.0.0 release.
+
+Complete rewrite in rust.
+
+
+### ⚠ BREAKING CHANGES
+Updated config format.
+
+
 ## [2.0.1](https://github.com/gordlea/fireboard2mqtt/compare/v2.0.0...v2.0.1) (2022-12-15)
 
 
