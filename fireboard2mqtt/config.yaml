@@ -21,10 +21,9 @@ boot: auto
 options:
   fireboardAccount_email: null
   fireboardAccount_password: null
-  logLevel: "info"
-  mqtt_discovery_prefix: "homeassistant"
-  mqtt_base_topic: "fireboard2mqtt"
-  mqtt_clientid: "fireboard2mqtt"
+  fireboard_enable_drive: false
+  logLevel: "fireboard2mqtt=debug"
+
 schema:
   fireboardAccount_email: email
   fireboardAccount_password: password
@@ -32,7 +31,7 @@ schema:
   mqtt_discovery_prefix: "str?"
   mqtt_base_topic: "str?"
   mqtt_clientid: "str?"
-  logLevel: "list(error|warn|info|debug|trace)?"
+  logLevel: "str"
 
 
 backup_exclude:

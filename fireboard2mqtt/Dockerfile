@@ -23,5 +23,8 @@ RUN cd /tmp && \
 FROM $BUILD_FROM
 COPY --from=0 /tmp/fireboard2mqtt/target/debug/fireboard2mqtt /usr/local/bin/fireboard2mqtt
 COPY run.sh /
-RUN chmod a+x /run.sh
+RUN chmod a+x /run.sh && \
+    apk add --no-cache \
+    openssl-dev \
+    libgcc
 CMD [ "/run.sh" ]
