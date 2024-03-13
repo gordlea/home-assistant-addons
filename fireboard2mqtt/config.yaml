@@ -1,5 +1,5 @@
 name: Fireboard 2 MQTT
-version: 2.0.5
+version: 3.0.0-beta.0
 stage: experimental
 slug: fireboard2mqtt
 url: https://github.com/gordlea/fireboard2mqtt
@@ -15,27 +15,25 @@ arch:
 services:
 - "mqtt:need"
 init: false
-host_network: true
+host_network: false
 startup: application
 boot: auto
 options:
   fireboardAccount_email: null
   fireboardAccount_password: null
-  mqtt_protocolVersion: '3'
-  logLevel: "debug"
-  verboseLog: false
-  homeAssistant_prefixEntityNamesWithFireboardId: false
-  homeAssistant_prefixEntityNamesWithFireboardName: false
+  logLevel: "info"
+  mqtt_discovery_prefix: "homeassistant"
+  mqtt_base_topic: "fireboard2mqtt"
+  mqtt_clientid: "fireboard2mqtt"
 schema:
-  fireboardAccount_email: str
+  fireboardAccount_email: email
   fireboardAccount_password: password
-  mqtt_serverUrl: "str?"
-  mqtt_username: "str?"
-  mqtt_password: "password?"
-  mqtt_protocolVersion: "list(5|4|3)?"
-  # logLevel: "list(error|warn|info|debug)?"
-  verboseLog: "bool"
-  homeAssistant_prefixEntityNamesWithFireboardId: "bool"
-  homeAssistant_prefixEntityNamesWithFireboardName: "bool"
+  fireboard_enable_drive: bool
+  mqtt_discovery_prefix: "str?"
+  mqtt_base_topic: "str?"
+  mqtt_clientid: "str?"
+  logLevel: "list(error|warn|info|debug|trace)?"
+
+
 backup_exclude:
 - "**/*"

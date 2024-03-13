@@ -1,5 +1,7 @@
 # Home Assistant Add-on: emu2mqtt
 
+### This addon is deprecated, support for the emu2 is now provided by the Rainforest RAVEn integration built into home assistant.
+
 ![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
 
 An addon that will bring your [Emu-2](https://www.rainforestautomation.com/rfa-z105-2-emu-2-2/) energy monitoring unit into home assistant via mqtt autodiscovery.
