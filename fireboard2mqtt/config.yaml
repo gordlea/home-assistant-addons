@@ -25,7 +25,7 @@ options:
   logLevel: "fireboard2mqtt=debug"
 
 schema:
-  fireboardAccount_email: email
+  fireboardAccount_email: str
   fireboardAccount_password: password
   fireboard_enable_drive: bool
   mqtt_discovery_prefix: "str?"

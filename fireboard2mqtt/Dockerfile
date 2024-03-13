@@ -17,11 +17,11 @@ RUN cd /tmp && \
     unzip fb2mqtt.zip && \
     mv fireboard2mqtt* fireboard2mqtt && \
     cd /tmp/fireboard2mqtt* && \
-    cargo build && \
-    cp target/debug/fireboard2mqtt /usr/local/bin/fireboard2mqtt
+    cargo build --release && \
+    cp target/release/fireboard2mqtt /usr/local/bin/fireboard2mqtt
 
 FROM $BUILD_FROM
-COPY --from=0 /tmp/fireboard2mqtt/target/debug/fireboard2mqtt /usr/local/bin/fireboard2mqtt
+COPY --from=0 /tmp/fireboard2mqtt/target/release/fireboard2mqtt /usr/local/bin/fireboard2mqtt
 COPY run.sh /
 RUN chmod a+x /run.sh && \
     apk add --no-cache \

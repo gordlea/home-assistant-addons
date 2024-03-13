@@ -11,8 +11,8 @@ docker run --rm \
   -v ${_basepath}:/data \
   homeassistant/aarch64-builder \
   --docker-user $DOCKER_USERNAME --docker-password $DOCKER_PASSWORD \
-  --target /data --aarch64 \
+  --target /data \
   --no-latest \
   --additional-tag beta \
-  --test
+  --all # --amd64 --test
   
