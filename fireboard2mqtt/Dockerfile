@@ -2,6 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 
+
 # Install requirements for add-on
 RUN apk add --no-cache \
     curl \
@@ -17,11 +18,16 @@ RUN cd /tmp && \
     unzip fb2mqtt.zip && \
     mv fireboard2mqtt* fireboard2mqtt && \
     cd /tmp/fireboard2mqtt* && \
-    cargo build --release && \
-    cp target/release/fireboard2mqtt /usr/local/bin/fireboard2mqtt
+    cargo build
+
+# COPY ./fireboard2mqtt/fireboard2mqtt /tmp/fireboard2mqtt
+# RUN cd /tmp/fireboard2mqtt* && \
+#     ls -alh && \
+#     cargo build
+RUN cp /tmp/fireboard2mqtt/target/debug/fireboard2mqtt /usr/local/bin/fireboard2mqtt
 
 FROM $BUILD_FROM
-COPY --from=0 /tmp/fireboard2mqtt/target/release/fireboard2mqtt /usr/local/bin/fireboard2mqtt
+COPY --from=0 /tmp/fireboard2mqtt/target/debug/fireboard2mqtt /usr/local/bin/fireboard2mqtt
 COPY run.sh /
 RUN chmod a+x /run.sh && \
     apk add --no-cache \

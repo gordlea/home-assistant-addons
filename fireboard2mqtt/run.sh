@@ -3,6 +3,10 @@
 export RUST_LOG="$(bashio::config 'logLevel')"
 export FB2MQTT_FIREBOARDACCOUNT_EMAIL="$(bashio::config 'fireboardAccount_email')"
 export FB2MQTT_FIREBOARDACCOUNT_PASSWORD="$(bashio::config 'fireboardAccount_password')"
+
+# bashio::log.info "email: ${FB2MQTT_FIREBOARDACCOUNT_EMAIL}"
+# bashio::log.info "password: ${FB2MQTT_FIREBOARDACCOUNT_PASSWORD}"
+
 export FB2MQTT_FIREBOARD_ENABLE_DRIVE="$(bashio::config 'fireboard_enable_drive')"
 
 export FB2MQTT_MQTT_USERNAME=$(bashio::services mqtt "username")
@@ -14,6 +18,10 @@ MQTT_PORT=$(bashio::services mqtt "port")
 MQTT_URL_PROTOCOL="mqtt"
 if bashio::var.true "$(bashio::services mqtt "ssl")"; then
     MQTT_URL_PROTOCOL="mqtts"
+fi
+
+if bashio::var.true "$(bashio::config  "rust_backtrace")"; then
+    export RUST_BACKTRACE=full
 fi
 
 

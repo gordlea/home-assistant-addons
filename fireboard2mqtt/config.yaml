@@ -1,5 +1,5 @@
 name: Fireboard 2 MQTT
-version: 3.0.0-beta.1
+version: 3.0.0-beta.2
 stage: experimental
 slug: fireboard2mqtt
 url: https://github.com/gordlea/fireboard2mqtt
@@ -31,6 +31,7 @@ schema:
   mqtt_base_topic: "str?"
   mqtt_clientid: "str?"
   logLevel: "str"
+  rust_backtrace: "bool?"
 
 
 backup_exclude:
