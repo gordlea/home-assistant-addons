@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.0.0-beta.1](https://github.com/gordlea/fireboard2mqtt/compare/main...v3.x) (2024-03-14)
+
+Fix hardcoded credentials.
+Add new sensors for fireboard drive mode and fireboard drive setpoint.
+
 ## [3.0.0-beta.0](https://github.com/gordlea/fireboard2mqtt/compare/main...v3.x) (2024-03-13)
 
 First beta 3.0.0 release.
