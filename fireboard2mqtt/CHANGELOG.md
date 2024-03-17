@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.0.0-beta.3](https://github.com/gordlea/fireboard2mqtt/compare/main...v3.x) (2024-03-14)
+
+Fix issues with setpoint and drive_mode.
+
+
 ## [3.0.0-beta.1](https://github.com/gordlea/fireboard2mqtt/compare/main...v3.x) (2024-03-14)
 
 Fix hardcoded credentials.
