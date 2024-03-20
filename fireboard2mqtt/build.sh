@@ -9,11 +9,9 @@ docker run --rm \
   --privileged \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   -v ${_basepath}:/data \
-  homeassistant/aarch64-builder \
+  homeassistant/amd64-builder \
   --docker-user $DOCKER_USERNAME --docker-password $DOCKER_PASSWORD \
   --target /data \
   --no-latest \
   --additional-tag beta \
   --all
-  # --all #  # --test
-  

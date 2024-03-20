@@ -1,9 +1,9 @@
 name: Fireboard 2 MQTT
-version: 3.0.0-beta.6
+version: 3.0.0-beta.7
 stage: experimental
 slug: fireboard2mqtt
 url: https://github.com/gordlea/fireboard2mqtt
-# image: gordlea/homeassistant-addon-{arch}-fireboard2mqtt
+image: gordlea/homeassistant-addon-{arch}-fireboard2mqtt
 description: >-
   A bridge that connects the fireboard cloud api to mqtt (compatible with home assistant mqtt discovery).
 arch:
@@ -11,6 +11,7 @@ arch:
 - armv7
 - aarch64
 - amd64
+- i386
 services:
 - "mqtt:need"
 init: false

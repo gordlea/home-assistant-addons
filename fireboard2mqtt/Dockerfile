@@ -8,7 +8,6 @@ RUN apk add --no-cache \
     curl \
     rust \ 
     cargo \
-    rustup \
     git \
     pkgconfig \
     openssl-dev
