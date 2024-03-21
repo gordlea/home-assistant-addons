@@ -14,5 +14,4 @@ docker run --rm \
   --target /data \
   --no-latest \
   --additional-tag beta \
-  --no-cache \
   --all

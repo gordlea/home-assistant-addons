@@ -1,8 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-
-
 # Install requirements for add-on
 RUN apk add --no-cache \
     curl \
@@ -13,7 +11,7 @@ RUN apk add --no-cache \
     openssl-dev
 
 RUN cd /tmp && \
-    curl -sL https://github.com/gordlea/fireboard2mqtt/archive/refs/heads/v3.x.zip --output fb2mqtt.zip && \    
+     curl -sL https://github.com/gordlea/fireboard2mqtt/archive/refs/heads/v3.x.zip --output fb2mqtt.zip && \    
     unzip fb2mqtt.zip && \
     mv fireboard2mqtt* fireboard2mqtt && \
     cd /tmp/fireboard2mqtt* && \
