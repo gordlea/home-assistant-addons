@@ -28,6 +28,8 @@ schema:
   fireboardAccount_email: str
   fireboardAccount_password: password
   fireboard_enable_drive: bool
+  mqtt_host: "str?"
+  mqtt_port: "int(1,65535)?"
   mqtt_discovery_prefix: "str?"
   mqtt_base_topic: "str?"
   mqtt_clientid: "str?"

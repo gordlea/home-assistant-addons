@@ -12,8 +12,15 @@ export FB2MQTT_FIREBOARD_ENABLE_DRIVE="$(bashio::config 'fireboard_enable_drive'
 export FB2MQTT_MQTT_USERNAME=$(bashio::services mqtt "username")
 export FB2MQTT_MQTT_PASSWORD=$(bashio::services mqtt "password")
 
-MQTT_HOST=$(bashio::services mqtt "host")
-MQTT_PORT=$(bashio::services mqtt "port")
+MQTT_HOST="$(bashio::config 'mqtt_host')"
+MQTT_PORT="$(bashio::config 'mqtt_port')"
+if [ -z "$MQTT_HOST" ]; then
+    MQTT_HOST=$(bashio::services mqtt "host")
+fi
+
+if [ -z "$MQTT_PORT" ]; then
+    MQTT_PORT=$(bashio::services mqtt "port")
+fi
 
 MQTT_URL_PROTOCOL="mqtt"
 if bashio::var.true "$(bashio::services mqtt "ssl")"; then
