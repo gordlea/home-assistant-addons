@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.0](https://github.com/gordlea/fireboard2mqtt/compare/v3.0.0...v3.1.0) (2024-03-26)
+
+Update to fireboard2mqtt v3.1.0
+
+Add ability to override mqtt url/username/password in home-assistant.
+
+Special thanks to @efaden for the pull request.
+
 ## [3.0.0](https://github.com/gordlea/fireboard2mqtt/compare/v2.0.5...v3.0.0) (2024-03-24)
 
 

@@ -1,5 +1,5 @@
 name: Fireboard 2 MQTT
-version: 3.0.0
+version: 3.1.0
 stage: experimental
 slug: fireboard2mqtt
 url: https://github.com/gordlea/fireboard2mqtt
@@ -28,8 +28,9 @@ schema:
   fireboardAccount_email: str
   fireboardAccount_password: password
   fireboard_enable_drive: bool
-  mqtt_host: "str?"
-  mqtt_port: "int(1,65535)?"
+  override_mqtt_url: "str?"
+  override_mqtt_username: "str?"
+  override_mqtt_password: "password?"
   mqtt_discovery_prefix: "str?"
   mqtt_base_topic: "str?"
   mqtt_clientid: "str?"
