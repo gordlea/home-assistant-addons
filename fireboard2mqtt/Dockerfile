@@ -11,7 +11,7 @@ RUN apk add --no-cache \
     openssl-dev
 
 RUN cd /tmp && \
-    curl -sL https://github.com/gordlea/fireboard2mqtt/archive/refs/tags/v3.0.0.zip --output fb2mqtt.zip && \    
+    curl -sL https://github.com/gordlea/fireboard2mqtt/archive/refs/tags/v3.1.0.zip --output fb2mqtt.zip && \    
     unzip fb2mqtt.zip && \
     mv fireboard2mqtt* fireboard2mqtt && \
     cd /tmp/fireboard2mqtt* && \
