@@ -7,22 +7,28 @@ export FB2MQTT_FIREBOARDACCOUNT_PASSWORD="$(bashio::config 'fireboardAccount_pas
 export FB2MQTT_FIREBOARD_ENABLE_DRIVE="$(bashio::config 'fireboard_enable_drive')"
 bashio::log.info "drive enabled: ${FB2MQTT_FIREBOARD_ENABLE_DRIVE}"
 
-# If the user has supplied any override mqtt settings, use them, otherwise
-# use the mqtt service settings from home-assistant
-if bashio::config.has_value 'override_mqtt_username'; then
-    export FB2MQTT_MQTT_USERNAME="$(bashio::config 'override_mqtt_username')"
-    bashio::log.info "found user supplied override_mqtt_username: ${FB2MQTT_MQTT_USERNAME}"
-else
-    export FB2MQTT_MQTT_USERNAME=$(bashio::services mqtt "username")
-    bashio::log.info "using mqtt service username from home-assistant: ${FB2MQTT_MQTT_USERNAME}"
-fi 
 
-if bashio::config.has_value 'override_mqtt_password'; then
-    export FB2MQTT_MQTT_PASSWORD="$(bashio::config 'override_mqtt_password')"
-    bashio::log.info "found user supplied override_mqtt_password"
+
+if bashio::config.true 'mqtt_force_anonymous_credentials'; then
+    bashio::log.info "forcing anonymous mqtt credentials"
 else
-    export FB2MQTT_MQTT_PASSWORD=$(bashio::services mqtt "password")
-    bashio::log.info "using mqtt service password from home-assistant"
+    # If the user has supplied any override mqtt settings, use them, otherwise
+    # use the mqtt service settings from home-assistant
+    if bashio::config.has_value 'override_mqtt_username'; then
+        export FB2MQTT_MQTT_USERNAME="$(bashio::config 'override_mqtt_username')"
+        bashio::log.info "found user supplied override_mqtt_username: ${FB2MQTT_MQTT_USERNAME}"
+    else
+        export FB2MQTT_MQTT_USERNAME=$(bashio::services mqtt "username")
+        bashio::log.info "using mqtt service username from home-assistant: ${FB2MQTT_MQTT_USERNAME}"
+    fi 
+
+    if bashio::config.has_value 'override_mqtt_password'; then
+        export FB2MQTT_MQTT_PASSWORD="$(bashio::config 'override_mqtt_password')"
+        bashio::log.info "found user supplied override_mqtt_password"
+    else
+        export FB2MQTT_MQTT_PASSWORD=$(bashio::services mqtt "password")
+        bashio::log.info "using mqtt service password from home-assistant"
+    fi
 fi
 
 if bashio::config.has_value 'override_mqtt_url'; then
@@ -30,7 +36,17 @@ if bashio::config.has_value 'override_mqtt_url'; then
     bashio::log.info "found user supplied override_mqtt_url: ${FB2MQTT_MQTT_URL}"
 else
     MQTT_HOST=$(bashio::services mqtt "host")
+    if ! bashio::var.has_value "${MQTT_HOST}"; then
+        # default if mqtt service doesn't return anything
+        MQTT_HOST="homeassistant"
+    fi
+
     MQTT_PORT=$(bashio::services mqtt "port")
+    if ! bashio::var.has_value "${MQTT_PORT}"; then
+        # default if mqtt service doesn't return anything
+        MQTT_PORT="1883"
+    fi
+
     MQTT_URL_PROTOCOL="mqtt"
     if bashio::var.true "$(bashio::services mqtt "ssl")"; then
         MQTT_URL_PROTOCOL="mqtts"
@@ -39,9 +55,17 @@ else
     bashio::log.info "using mqtt service url from home-assistant: ${FB2MQTT_MQTT_URL}"
 fi
 
-export FB2MQTT_DISCOVERY_PREFIX="$(bashio::config 'mqtt_discovery_prefix')"
-export FB2MQTT_MQTT_BASE_TOPIC="$(bashio::config 'mqtt_base_topic')"
-export FB2MQTT_MQTT_CLIENTID="$(bashio::config 'mqtt_clientid')"
+if bashio::config.has_value 'mqtt_discovery_prefix'; then
+    export FB2MQTT_DISCOVERY_PREFIX="$(bashio::config 'mqtt_discovery_prefix')"
+fi
+
+if bashio::config.has_value 'mqtt_base_topic'; then
+    export FB2MQTT_MQTT_BASE_TOPIC="$(bashio::config 'mqtt_base_topic')"
+fi
+
+if bashio::config.has_value 'mqtt_clientid'; then
+    export FB2MQTT_MQTT_CLIENTID="$(bashio::config 'mqtt_clientid')"
+fi
 
 bashio::log.info "Starting fireboard2mqtt"
 
