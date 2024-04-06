@@ -1,5 +1,5 @@
 name: Fireboard 2 MQTT
-version: 3.1.1
+version: 3.1.2
 stage: experimental
 slug: fireboard2mqtt
 url: https://github.com/gordlea/fireboard2mqtt
@@ -22,7 +22,7 @@ options:
   fireboardAccount_email: null
   fireboardAccount_password: null
   fireboard_enable_drive: false
-  logLevel: "fireboard2mqtt=debug"
+  logLevel: "fireboard2mqtt=info"
   override_mqtt_credentials_behavior: "if blank use internal home-assistant credentials"
 
 schema:
