@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.1.3](https://github.com/gordlea/fireboard2mqtt/compare/v3.1.2...v3.1.3) (2024-05-18)
+
+* fix: no long send blank state when sensor is offline, this should stop all the extra logging showing up in the home assistant core log (thanks @mattdevo1)
+* change default log level to WARN
+
 ## [3.1.2](https://github.com/gordlea/fireboard2mqtt/compare/v3.1.1...v3.1.2) (2024-04-06)
 
 * add extra debug logging to fireboard_api ([#47](https://github.com/gordlea/fireboard2mqtt/issues/47)) ([f9c1683](https://github.com/gordlea/fireboard2mqtt/commit/f9c1683b610d8ccdd16e773b36ad2b77adc911a2))
