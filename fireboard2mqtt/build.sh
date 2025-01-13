@@ -32,7 +32,8 @@ docker run --rm \
   --docker-user $DOCKER_USERNAME --docker-password $DOCKER_PASSWORD \
   --target /data \
   --all --no-cache
-  # --amd64 --no-latest
+  # --amd64 --no-latest --additional-tag beta
+  
 
 
 
