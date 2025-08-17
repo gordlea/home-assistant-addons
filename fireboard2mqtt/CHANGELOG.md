@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.1.5-beta.0]
+
+* device_log is now an optional field in the device list. This was causing some issues for some Fireboard Spark users. See [#58](https://github.com/gordlea/fireboard2mqtt/issues/58).
+
 ## [3.1.4](https://github.com/gordlea/fireboard2mqtt/compare/v3.1.3...v3.1.4) (2025-01-12)
 
 
