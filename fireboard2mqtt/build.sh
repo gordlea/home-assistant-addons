@@ -31,8 +31,7 @@ docker run --rm \
   homeassistant/aarch64-builder \
   --docker-user $DOCKER_USERNAME --docker-password $DOCKER_PASSWORD \
   --target /data \
-  --all --no-cache
-  # --amd64 --no-latest --additional-tag beta
+  --amd64 --armhf --armv7 --aarch64 --amd64 --i386
   
 
 
