@@ -7,7 +7,7 @@ _scriptpath="$_basepath/$(basename "${BASH_SOURCE[0]}")"
 
 fireboard_repo_dir="fireboard2mqtt_repo"
 fireboard_repo_url="https://github.com/gordlea/fireboard2mqtt.git"
-fireboard_local_dir="/Users/johlea/dev/personal/fireboard2mqtt"
+fireboard_local_dir="/home/gord/dev/fireboard2mqtt"
 # if ! use local
 # cd "$_basepath"
 # if [ ! -d "$fireboard_repo_dir" ] ; then
@@ -28,13 +28,10 @@ docker run --rm \
   --privileged \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   -v ${_basepath}:/data \
-  homeassistant/aarch64-builder \
+  homeassistant/amd64-builder \
   --docker-user $DOCKER_USERNAME --docker-password $DOCKER_PASSWORD \
   --target /data \
-  --amd64 --armhf --armv7 --aarch64 --amd64 --i386
-  
-
-
-
+  --aarch64 \
+  --amd64 
   # --no-latest \
-  # --additional-tag beta \
+  # --additional-tag beta

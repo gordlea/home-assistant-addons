@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
+bashio::log.info "Starting fireboard2mqtt"
+
 export RUST_LOG="$(bashio::config 'logLevel')"
 export FB2MQTT_FIREBOARDACCOUNT_EMAIL="$(bashio::config 'fireboardAccount_email')"
 export FB2MQTT_FIREBOARDACCOUNT_PASSWORD="$(bashio::config 'fireboardAccount_password')"
@@ -8,6 +10,13 @@ export FB2MQTT_FIREBOARD_ENABLE_DRIVE="$(bashio::config 'fireboard_enable_drive'
 bashio::log.info "drive enabled: ${FB2MQTT_FIREBOARD_ENABLE_DRIVE}"
 
 
+if bashio::config.has_value 'fireboard_api_update_interval_seconds'; then
+    export FB2MQTT_FIREBOARD_API_UPDATE_INTERVAL_SECONDS="$(bashio::config 'fireboard_api_update_interval_seconds')"
+fi
+
+if bashio::config.has_value 'fireboard_api_update_interval_seconds_when_offline'; then
+    export FB2MQTT_FIREBOARD_API_UPDATE_INTERVAL_SECONDS_WHEN_OFFLINE="$(bashio::config 'fireboard_api_update_interval_seconds_when_offline')"
+fi
 
 if bashio::config.true 'mqtt_force_anonymous_credentials'; then
     bashio::log.info "forcing anonymous mqtt credentials"
