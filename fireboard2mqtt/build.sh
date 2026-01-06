@@ -31,6 +31,7 @@ docker run --rm \
   homeassistant/amd64-builder \
   --docker-user $DOCKER_USERNAME --docker-password $DOCKER_PASSWORD \
   --target /data \
-  --amd64 \
-  --no-latest \
-  --additional-tag beta
+  --aarch64 \
+  --amd64 
+  # --no-latest \
+  # --additional-tag beta
