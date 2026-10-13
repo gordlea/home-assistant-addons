@@ -7,7 +7,7 @@ services:
   - mqtt:want
 hassio_role: default
 hassio_api: true  
-image: gordlea/homeassistant-addon-{arch}-fireboard2mqtt
+image: ghcr.io/gordlea/fireboard2mqtt-addon-{arch}
 description: >-
   A bridge that connects the fireboard cloud api to mqtt (compatible with home assistant mqtt discovery)
 arch:

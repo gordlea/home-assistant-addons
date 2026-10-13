@@ -12,9 +12,8 @@ This repository contains the following add-ons:
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
+
+_Source, issues and releases live in [gordlea/fireboard2mqtt](https://github.com/gordlea/fireboard2mqtt); the files in this directory are written by that repository's release workflow._
 
 _Connects your fireboard thermometer to home assistant via mqtt. Uses the fireboard cloud api._
 
