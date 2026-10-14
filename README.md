@@ -20,6 +20,15 @@ _Connects your fireboard thermometer to home assistant via mqtt. Uses the firebo
 #### Note: ####
 Due to the 200 req/hr request limit on the fireboard api, this only updates temperatures every 20 seconds if the fireboard drive is disabled, or every 40 seconds if drive is enabled (in the config).
 
+### [fireboard2mqtt-edge](./fireboard2mqtt-edge)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+
+_Edge build of fireboard2mqtt, rebuilt from every commit to `main` of [gordlea/fireboard2mqtt](https://github.com/gordlea/fireboard2mqtt) for testing fixes before they are released. Versions look like `3.3.0-edge.20261014.750b03f`. Shown in the add-on store as "Fireboard 2 MQTT (edge)". This directory appears once the first edge build has run._
+
+_Do not run it at the same time as the stable fireboard2mqtt add-on: both use the same MQTT client id and topics._
+
 ### [_emu2mqtt (deprecated)_](./emu2mqtt)
 
 ![Supports aarch64 Architecture][aarch64-shield]
